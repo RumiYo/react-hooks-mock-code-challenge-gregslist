@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function Search({ filterList }) {
 
   const [ searchWord, setSearchWord ] = useState("")
+  
   function handleSubmit(e) {
     e.preventDefault();
     console.log(searchWord)
