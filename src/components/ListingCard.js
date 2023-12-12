@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
-function ListingCard({ image, description, location, id, updateList }) {
+function ListingCard({ item, onDeleteItem }) {
 
- const [ favOn, setFavOn ] = useState(false)
+  const {image, description, location, id} = item; 
+  const [ favOn, setFavOn ] = useState(false)
 
   function favButtonClick(event){
     setFavOn(!favOn);
@@ -10,7 +11,12 @@ function ListingCard({ image, description, location, id, updateList }) {
 
   function deleteButton(e){
     console.log(parseInt(e.target.id))
-    updateList(parseInt(e.target.id))
+    // updateList(parseInt(e.target.id))
+    fetch(`http://localhost:6001/listings/${e.target.id}`,{
+      method: "DELETE",
+    })
+    .then(r => r.json())
+    .then(() => onDeleteItem(item))
   }
 
   return (

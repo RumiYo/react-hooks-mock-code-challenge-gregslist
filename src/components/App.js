@@ -12,9 +12,9 @@ function App() {
     .then(data =>setItemList(data))
   },[])
 
- function updateList(itemId){
-    const newItemList = itemList.filter(item => item.id !== itemId )
-    setItemList(newItemList.toLowerCase())
+ function onDeleteItem(deletedItem){
+    const newItemList = itemList.filter(item => item.id !== deletedItem.id )
+    setItemList(newItemList)
  }
 
  function filterList(word){
@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="app">
       <Header filterList={filterList}/>
-      <ListingsContainer itemList={itemList} updateList={updateList} />
+      <ListingsContainer itemList={itemList} onDeleteItem={onDeleteItem} />
     </div>
   );
 }
