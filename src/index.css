@@ -18,6 +18,10 @@ header {
   justify-content: space-between;
 }
 
+#addItem {
+  padding: 1rem;
+}
+
 header h1 {
   line-height: 1;
   font-family: serif;

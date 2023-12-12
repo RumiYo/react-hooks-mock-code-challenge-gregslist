@@ -5,12 +5,8 @@ function Search({ filterList }) {
   const [ searchWord, setSearchWord ] = useState("")
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(searchWord)
     filterList(searchWord.toLowerCase());
-
-  }
-
-  function formInput(e){
-    setSearchWord(e.target.value)
   }
 
   return (
@@ -20,7 +16,7 @@ function Search({ filterList }) {
         id="search"
         placeholder="search free stuff"
         value={searchWord}
-        onChange={formInput}
+        onChange={e => setSearchWord(e.target.value)}
       />
       <button type="submit">🔍</button>
     </form>

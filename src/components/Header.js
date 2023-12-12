@@ -1,7 +1,8 @@
 import React from "react";
 import Search from "./Search";
+import SortByArea from "./SortByArea";
 
-function Header({ filterList }) {
+function Header({ filterList, sortOn, updateSort }) {
   return (
     <header>
       <h1>
@@ -11,6 +12,9 @@ function Header({ filterList }) {
         gregslist
       </h1>
       <Search filterList={filterList} />
+      <br/>
+      <p>Sort by area: </p> 
+      <SortByArea sortOn={sortOn} updateSort={updateSort}/>
     </header>
   );
 }
